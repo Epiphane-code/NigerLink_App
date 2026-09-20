@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "628457462916",
+    "project_id": "nigerlink",
+    "storage_bucket": "nigerlink.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:628457462916:android:2b6baf5f349e5618fdb6d1",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "628457462916-b01l34tsef37nurgq88jkq3r4p58dc9g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGpVBWlKRO5051SP7PrrEKP3GvBrq3MQI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "628457462916-b01l34tsef37nurgq88jkq3r4p58dc9g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:628457462916:android:c2bfced6eddb29a7fdb6d1",
+        "android_client_info": {
+          "package_name": "com.example.e_services_niger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "628457462916-b01l34tsef37nurgq88jkq3r4p58dc9g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGpVBWlKRO5051SP7PrrEKP3GvBrq3MQI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "628457462916-b01l34tsef37nurgq88jkq3r4p58dc9g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
