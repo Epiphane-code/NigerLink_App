@@ -9,6 +9,7 @@ class AuthController extends ChangeNotifier {
   User? _user;
   String get user {
     if (_user != null) {
+      
       if (_user!.displayName != null) {
         return _user!.displayName!;
       }
