@@ -19,7 +19,7 @@ Widget categorieIcon(String cat) {
     // SANTÉ
     // =========================
 
-    case 'Pharmacies':
+    case 'Pharmacie':
       return const Icon(Icons.medication_rounded, color: Color(0xFF2E8B57));
 
     case 'Sante':

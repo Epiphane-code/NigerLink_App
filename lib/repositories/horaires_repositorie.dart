@@ -2,7 +2,7 @@
   List<Map<String, dynamic>> horaires = [
     {
       'idVal': 1,
-      'joursOuverts': 'lmmjv',
+      'joursOuverts': ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi'],
       'heureOuverture': DateTime(2026, 1, 1, 8, 0),
       'heureFermeture': DateTime(2026, 1, 1, 18, 0),
       'demiJour': 'vendredi',

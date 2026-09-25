@@ -1,11 +1,12 @@
 // ignore_for_file: prefer_final_fields
 
 import 'package:e_services_niger/models/categorie.dart';
-import 'package:e_services_niger/models/info.dart';
+import 'package:e_services_niger/models/media.dart';
 import 'package:e_services_niger/models/numero_urgence.dart';
 import 'package:e_services_niger/models/service.dart';
 import 'package:e_services_niger/models/user.dart';
 import 'package:e_services_niger/controllers/data_controller.dart';
+import 'package:e_services_niger/models/video.dart';
 import 'package:e_services_niger/services/auth_service.dart';
 import 'package:flutter/material.dart';
 
@@ -50,10 +51,23 @@ class ProviderController extends ChangeNotifier {
   List<ServiceModel> get services => _services;
   UserModel? _userInfo;
 
-  List<InfoModel> _infos = [];
-  List<InfoModel> get infos => _infos;
+  List<MediaModel> _medias = [];
+  List<MediaModel> get medias => _medias;
+
+  List<VideoModel> _videos = [];
+  List<VideoModel> get videos => _videos;
 
   //voids
+  Future<void> getCoordonnees() async{
+    _errorText = "";
+    _statutRequete = StatutRequete.isLoading;
+    notifyListeners();
+
+    try{}
+    catch()
+  }
+
+
   Future<void> login(String telephone, String password) async {
     _errorText = '';
     _statutRequete = StatutRequete.isLoading;
@@ -92,12 +106,12 @@ class ProviderController extends ChangeNotifier {
       notifyListeners();
     }
   }
-  Future<void> getInfos() async {
+  Future<void> getMedia() async {
     _errorText = '';
     _statutRequete = StatutRequete.isLoading;
     notifyListeners();
     try {
-      _infos = data.getInfos();
+      _medias = data.getMedia();
       _statutRequete = StatutRequete.success;
       print('GetInfos reussi');
 
@@ -189,6 +203,26 @@ class ProviderController extends ChangeNotifier {
       _errorText = e.toString();
       _statutRequete = StatutRequete.error;
       print('GetUrgence echouer ${e.toString()}');
+
+    } finally {
+      notifyListeners();
+    }
+
+  }
+
+  Future<void> getVideos()async {
+    _errorText = '';
+    _statutRequete = StatutRequete.isLoading;
+    notifyListeners();
+    try {
+
+      _videos = data.gestVideos();
+      _statutRequete = StatutRequete.success;
+      print('GetVideos reussi');
+    } catch (e) {
+      _errorText = e.toString();
+      _statutRequete = StatutRequete.error;
+      print('GetVideos echouer ${e.toString()}');
 
     } finally {
       notifyListeners();

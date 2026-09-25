@@ -60,7 +60,7 @@ class CategorieDetail extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    'categorie.description',
+                    categorie.description,
                     style: const TextStyle(color: Colors.white70),
                   ),
                 ],

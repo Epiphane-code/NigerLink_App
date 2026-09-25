@@ -1,20 +1,20 @@
 import 'package:e_services_niger/controllers/provider_controller.dart';
-import 'package:e_services_niger/models/info.dart';
+import 'package:e_services_niger/models/media.dart';
+import 'package:e_services_niger/views/screens/media_detail.dart';
 import 'package:e_services_niger/views/widgets/app_header.dart';
-import 'package:e_services_niger/views/widgets/info_card.dart';
-import 'package:e_services_niger/views/widgets/popup.dart';
+import 'package:e_services_niger/views/widgets/media_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class InfoPage extends StatefulWidget {
-  const InfoPage({super.key});
+class MediaPage extends StatefulWidget {
+  const MediaPage({super.key});
 
   @override
-  State<InfoPage> createState() => _InfoPageState();
+  State<MediaPage> createState() => _InfoPageState();
 }
 
-class _InfoPageState extends State<InfoPage> {
-  late List<InfoModel> infos;
+class _InfoPageState extends State<MediaPage> {
+  late List<MediaModel> medias;
 
   @override
   void initState() {
@@ -23,7 +23,8 @@ class _InfoPageState extends State<InfoPage> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final provider = context.read<ProviderController>();
 
-      provider.getInfos();
+      provider.getMedia();
+      provider.getVideos();
     });
   }
 
@@ -31,7 +32,8 @@ class _InfoPageState extends State<InfoPage> {
   Widget build(BuildContext context) {
     final provider = context.watch<ProviderController>();
 
-    final List<InfoModel> infos = provider.infos;
+    medias = provider.medias;
+
 
     return Scaffold(
       body: SafeArea(
@@ -53,7 +55,7 @@ class _InfoPageState extends State<InfoPage> {
                         child: CircularProgressIndicator(color: Colors.black),
                       ),
                     )
-                  else if (infos.isEmpty)
+                  else if (medias.isEmpty)
                     const SliverFillRemaining(
                       child: Center(
                         child: Text(
@@ -67,22 +69,22 @@ class _InfoPageState extends State<InfoPage> {
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       sliver: SliverList(
                         delegate: SliverChildBuilderDelegate((context, index) {
-                          final info = infos[index];
+                          final media = medias[index];
                           return Padding(
                             padding: const EdgeInsets.only(bottom: 12),
-                            child: InfoCard(
-                              info: info,
+                            child: MediaCard(
+                              media: media,
                               onTap: () {
                                 showDialog(
                                   context: context,
                                   builder: (context) {
-                                    return AppPopup(info: info);
+                                    return MediaDetail(media: media);
                                   },
                                 );
                               },
                             ),
                           );
-                        }, childCount: infos.length),
+                        }, childCount: medias.length),
                       ),
                     ),
 
