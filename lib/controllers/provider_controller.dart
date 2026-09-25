@@ -63,8 +63,7 @@ class ProviderController extends ChangeNotifier {
     _statutRequete = StatutRequete.isLoading;
     notifyListeners();
 
-    try{}
-    catch()
+   
   }
 
 
