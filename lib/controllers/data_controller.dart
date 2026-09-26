@@ -1,10 +1,12 @@
 import 'package:e_services_niger/models/categorie.dart';
+import 'package:e_services_niger/models/coordonnee.dart';
 import 'package:e_services_niger/models/media.dart';
 import 'package:e_services_niger/models/numero_urgence.dart';
 import 'package:e_services_niger/models/service.dart';
 import 'package:e_services_niger/models/user.dart';
 import 'package:e_services_niger/models/video.dart';
 import 'package:e_services_niger/repositories/categorie_repositorie.dart';
+import 'package:e_services_niger/repositories/coordonnees_repositorie.dart';
 import 'package:e_services_niger/repositories/media_repositorie.dart';
 import 'package:e_services_niger/repositories/services_repositorie.dart';
 import 'package:e_services_niger/repositories/urgences_repositorie.dart';
@@ -128,6 +130,14 @@ class Data {
     List<VideoModel> liste = [];
     for(Map<String, dynamic> video in videosData){
       liste.add(VideoModel.fromMap(video));
+    }
+    return liste;
+  }
+
+  List<CoordonneeLatLnt> getCoordonnees(){
+    List<CoordonneeLatLnt> liste = [];
+    for(Map<String, dynamic> coordonnee in coordonnees){
+      liste.add(CoordonneeLatLnt.fromMap(coordonnee));
     }
     return liste;
   }

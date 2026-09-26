@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_final_fields
 
 import 'package:e_services_niger/models/categorie.dart';
+import 'package:e_services_niger/models/coordonnee.dart';
 import 'package:e_services_niger/models/media.dart';
 import 'package:e_services_niger/models/numero_urgence.dart';
 import 'package:e_services_niger/models/service.dart';
@@ -28,15 +29,15 @@ class ProviderController extends ChangeNotifier {
   String _errorText = '';
   String get errorText => _errorText;
 
-  //autentification
   bool _auth = false;
   bool get auth => _auth;
 
-  //Les Info apres l'authentification
-  //--------------------------------
   late int _token;
   late UserModel? _mesInfo;
   UserModel get mesInfo => _mesInfo!;
+
+  List<CoordonneeLatLnt> _coordonnees = [];
+  List<CoordonneeLatLnt> get coordonnees => _coordonnees; 
 
   List<CategorieModel> _categories = [];
   List<CategorieModel> get categories => _categories;
@@ -62,8 +63,17 @@ class ProviderController extends ChangeNotifier {
     _errorText = "";
     _statutRequete = StatutRequete.isLoading;
     notifyListeners();
-
-   
+    try{
+      _coordonnees = data.getCoordonnees();
+      _statutRequete = StatutRequete.success;
+    }
+    catch(e){
+      _errorText = e.toString();
+      _statutRequete = StatutRequete.error;
+    }
+    finally{
+      notifyListeners();
+    }
   }
 
 
@@ -82,7 +92,6 @@ class ProviderController extends ChangeNotifier {
       _errorText = e.toString();
       _statutRequete = StatutRequete.error;
     } finally {
-      _statutRequete = StatutRequete.initial;
       notifyListeners();
     }
   }

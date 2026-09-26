@@ -1,4 +1,3 @@
-
 import 'package:e_services_niger/controllers/auth_controller.dart';
 import 'package:e_services_niger/controllers/localisation_controller.dart';
 import 'package:e_services_niger/controllers/provider_controller.dart';
@@ -7,7 +6,6 @@ import 'package:e_services_niger/views/screens/emergency_page.dart';
 import 'package:e_services_niger/views/widgets/categorie_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -27,7 +25,6 @@ class _HomePageState extends State<HomePage> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<ProviderController>().getCategorie();
       context.read<LocalisationController>().getCurrentCity();
-
     });
   }
 
@@ -41,109 +38,106 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final provider = context.watch<ProviderController>();
     final auth = context.read<AuthController>();
-    final ville = context.watch<LocalisationController>();
+    final ville = context.watch<LocalisationController>().city;
 
     return Scaffold(
+      appBar: AppBar(backgroundColor: Color(0xFF007A4D)),
       body: SafeArea(
         child: Column(
           children: [
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(20, 22, 20, 20),
-                      decoration: const BoxDecoration(
-                        color: Color(0xFF007A4D),
-                        borderRadius: BorderRadius.vertical(
-                          bottom: Radius.circular(16),
-                        ),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  'Bonjour ${auth.user}',
-                                  style: TextStyle(
-                                    color: Colors.white70,
-                                    fontSize: 14,
-                                    letterSpacing: 1.2,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 9,
-                                  vertical: 5,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: Colors.white.withOpacity(.14),
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                child: Row(
-                                  children: [
-                                    Icon(
-                                      Icons.location_on_outlined,
-                                      color: Colors.white,
-                                      size: 12,
-                                    ),
-                                    SizedBox(width: 3),
-                                    Text(
-                                      ville.city,
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 10,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-              
-                          const SizedBox(height: 12),
-              
-                          const Text(
-                            'NigerLink',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 25,
-                              fontWeight: FontWeight.w900,
-                              height: .95,
-                            ),
-                          ),
-              
-                          const SizedBox(height: 15),
-              
-                          // ESsearchBar(
-                          //   controller: search,
-                          //   onChanged: (_) {
-                          //     setState(() {});
-                          //   },
-                          // ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      color: Colors.white,
-                      width: double.infinity,
-                      
-                      child: Text(
-                          'Catégories des lieux et services',
+            Container(
+              padding: const EdgeInsets.fromLTRB(20, 22, 20, 20),
+              decoration: const BoxDecoration(
+                color: Color(0xFF007A4D),
+                borderRadius: BorderRadius.vertical(
+                  bottom: Radius.circular(16),
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          'Bonjour ${auth.user}',
                           style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w800,
+                            color: Colors.white70,
+                            fontSize: 14,
+                            letterSpacing: 1.2,
                           ),
                         ),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 9,
+                          vertical: 5,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(.14),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.location_on_outlined,
+                              color: Colors.white,
+                              size: 12,
+                            ),
+                            SizedBox(width: 3),
+                            Text(
+                              ville,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 10,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  const SizedBox(height: 12),
+
+                  const Text(
+                    'NigerLink',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                      fontWeight: FontWeight.w900,
+                      height: .95,
                     ),
+                  ),
+
+                  const SizedBox(height: 15),
+
+                  // ESsearchBar(
+                  //   controller: search,
+                  //   onChanged: (_) {
+                  //     setState(() {});
+                  //   },
+                  // ),
+                ],
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(10),
+              color: Colors.white,
+              width: double.infinity,
+
+              child: Text(
+                'Catégories des lieux et services',
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w800),
+              ),
+            ),
             Expanded(
               child: CustomScrollView(
                 slivers: [
                   // =========================
                   // HEADER
                   // =========================
-             
-              
+
                   // =========================
                   // URGENCES
                   // =========================
@@ -155,9 +149,8 @@ class _HomePageState extends State<HomePage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => const EmergencyPage(
-                                fullPage: true,
-                              ),
+                              builder: (_) =>
+                                  const EmergencyPage(fullPage: true),
                             ),
                           );
                         },
@@ -214,28 +207,38 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
-              
+
                   // =========================
                   // TITRE CATÉGORIES
                   // =========================
-                
-              
+
                   // =========================
                   // CATÉGORIES
                   // =========================
-                  const SliverToBoxAdapter(
-                    child: SizedBox(height: 10),
-                  ),
+                  const SliverToBoxAdapter(child: SizedBox(height: 10)),
                   SliverPadding(
                     padding: const EdgeInsets.symmetric(horizontal: 18),
-                    sliver: provider.isLoading? Center(child: CircularProgressIndicator(color: Colors.black,),) : SliverGrid(
-                      delegate: SliverChildBuilderDelegate(
-                        (context, index) {
-                          final categorie = provider.categories[index];
-              
-                          return CategorieCard(
-                            categorie: categorie,
-                            onTap: () {
+                    sliver: provider.isLoading
+                        ? const SliverToBoxAdapter(
+                            child: Center(
+                              child: Padding(
+                                padding: EdgeInsets.all(20),
+                                child: CircularProgressIndicator(
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                          )
+                        : SliverGrid(
+                            delegate: SliverChildBuilderDelegate((
+                              context,
+                              index,
+                            ) {
+                              final categorie = provider.categories[index];
+
+                              return CategorieCard(
+                                categorie: categorie,
+                                onTap: () {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
@@ -244,22 +247,19 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   );
                                 },
-                          );
-                        },
-                        childCount: provider.categories.length,
-                      ),
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 10,
-                        mainAxisSpacing: 10,
-                        childAspectRatio: 2.5,
-                      ),
-                    ),
+                              );
+                            }, childCount: provider.categories.length),
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                  crossAxisSpacing: 10,
+                                  mainAxisSpacing: 10,
+                                  childAspectRatio: 2.5,
+                                ),
+                          ),
                   ),
-              
-                  const SliverToBoxAdapter(
-                    child: SizedBox(height: 20),
-                  ),
+
+                  const SliverToBoxAdapter(child: SizedBox(height: 20)),
                 ],
               ),
             ),

@@ -3,6 +3,7 @@ import 'package:e_services_niger/controllers/provider_controller.dart';
 import 'package:e_services_niger/controllers/search_controller.dart';
 import 'package:e_services_niger/models/place.dart';
 import 'package:e_services_niger/models/service.dart';
+import 'package:e_services_niger/views/screens/carte_maps.dart';
 import 'package:e_services_niger/views/widgets/app_header.dart';
 import 'package:e_services_niger/views/widgets/search_bar.dart';
 import 'package:e_services_niger/views/widgets/service_card.dart';
@@ -69,6 +70,30 @@ class _SearchPageState extends State<SearchPage> {
             const AppHeader(
               title: 'Recherche',
               subtitle: 'Trouvez rapidement un service ou un lieu',
+            ),
+
+            const SizedBox(height: 10),
+
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 12),
+              decoration: BoxDecoration(
+                color: Colors.green.shade100,
+                borderRadius: BorderRadius.all(Radius.circular(12)),
+              ),
+              child: TextButton.icon(
+                onPressed: () {
+                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (_) =>
+                                          CarteMaps(),
+                                    ),
+                                  );
+                },
+                icon: Icon(Icons.map),
+                label: Text('Voir toute la carte'),
+              ),
             ),
 
             Padding(

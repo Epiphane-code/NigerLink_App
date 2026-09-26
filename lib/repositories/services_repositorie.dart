@@ -20,7 +20,7 @@ List<Map<String, dynamic>> services = [
     'categorieVal': 'Sante',
     'sousCategorieVal': 'Sante',
     'gestionnaireIdVal': 3,
-    'horaire': '8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-12:00 close',
+    'horaire': '',
     'nomserviceVal': 'Centre de Santé Bobiel',
     'aproposVal':
         'Centre de santé proposant des services de consultation, de soins et d’orientation médicale.',
@@ -68,7 +68,7 @@ List<Map<String, dynamic>> services = [
     'categorieVal': 'Securite',
     'sousCategorieVal': 'Gendarmerie',
     'gestionnaireIdVal': 2,
-    'horaire': '8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-12:00 close',
+    'horaire': '',
     'nomserviceVal': 'Gendarmerie Nationale',
     'aproposVal':
         'Service chargé notamment de la sécurité des personnes et des biens ainsi que du maintien de l’ordre.',
@@ -84,7 +84,7 @@ List<Map<String, dynamic>> services = [
     'categorieVal': 'Securite',
     'sousCategorieVal': 'Commissariat',
     'gestionnaireIdVal': 2,
-    'horaire': '8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-12:00 close',
+    'horaire': '',
     'nomserviceVal': 'Commissariat Central',
     'aproposVal':
         'Service de police destiné à accueillir les citoyens et à assurer différentes missions de sécurité publique.',
@@ -132,7 +132,7 @@ List<Map<String, dynamic>> services = [
     'categorieVal': 'Logement',
     'sousCategorieVal': 'Hotel',
     'gestionnaireIdVal': 8,
-    'horaire': '8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-12:00 close',
+    'horaire': '',
     'nomserviceVal': 'Hotel Sahel',
     'aproposVal':
         'Hôtel proposant des chambres et des services d’accueil pour les voyageurs et visiteurs.',
@@ -148,7 +148,7 @@ List<Map<String, dynamic>> services = [
     'categorieVal': 'Restauration',
     'sousCategorieVal': 'Restaurant',
     'gestionnaireIdVal': 10,
-    'horaire': '8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-12:00 close',
+    'horaire': '8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 ',
     'nomserviceVal': 'Restaurant La Palmeraie',
     'aproposVal':
         'Restaurant proposant différents plats et boissons dans un cadre adapté aux repas en famille ou entre amis.',
@@ -164,7 +164,7 @@ List<Map<String, dynamic>> services = [
     'categorieVal': 'Commercial',
     'sousCategorieVal': 'Commercial',
     'gestionnaireIdVal': 4,
-    'horaire': '8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-12:00 close',
+    'horaire': '8:30-19:00 8:30-19:00 8:30-19:00 8:30-19:00 8:30-19:00 8:30-19:00 8:30-19:00',
     'nomserviceVal': 'Grand Marche de Zinder',
     'aproposVal':
         'Espace commercial regroupant de nombreux vendeurs et proposant différents produits aux habitants et visiteurs.',
@@ -180,7 +180,7 @@ List<Map<String, dynamic>> services = [
     'categorieVal': 'Securite',
     'sousCategorieVal': 'Sapeurs Pompiers',
     'gestionnaireIdVal': 2,
-    'horaire': '8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-12:00 close',
+    'horaire': '',
     'nomserviceVal': 'Caserne des Sapeurs-Pompiers',
     'aproposVal':
         'Service d’intervention d’urgence spécialisé notamment dans la lutte contre les incendies et le secours aux personnes.',
@@ -228,7 +228,7 @@ List<Map<String, dynamic>> services = [
     'categorieVal': 'Humanitaire',
     'sousCategorieVal': 'Orphelinat',
     'gestionnaireIdVal': 9,
-    'horaire': '8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-12:00 close',
+    'horaire': '',
     'nomserviceVal': 'Orphelinat La Joie',
     'aproposVal':
         'Structure d’accueil et d’accompagnement destinée à apporter un cadre de vie et un soutien aux enfants vulnérables.',
@@ -244,7 +244,7 @@ List<Map<String, dynamic>> services = [
     'categorieVal': 'Culte et Religion',
     'sousCategorieVal': 'Mosquee',
     'gestionnaireIdVal': 10,
-    'horaire': '8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-12:00 close',
+    'horaire': '',
     'nomserviceVal': 'Grande Mosquee dAgadez',
     'aproposVal':
         'Lieu de culte destiné à la prière et aux activités religieuses de la communauté musulmane.',
@@ -260,7 +260,7 @@ List<Map<String, dynamic>> services = [
     'categorieVal': 'Culte et Religion',
     'sousCategorieVal': 'Eglise',
     'gestionnaireIdVal': 9,
-    'horaire': '8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-12:00 close',
+    'horaire': '',
     'nomserviceVal': 'Eglise de Diffa',
     'aproposVal':
         'Lieu de culte accueillant les fidèles pour les célébrations et différentes activités religieuses.',
@@ -276,7 +276,7 @@ List<Map<String, dynamic>> services = [
     'categorieVal': 'Transport',
     'sousCategorieVal': 'Voyage',
     'gestionnaireIdVal': 4,
-    'horaire': '8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-12:00 close',
+    'horaire': '8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 ',
     'nomserviceVal': 'Autogare de Tillaberi',
     'aproposVal':
         'Gare destinée aux voyageurs et aux services de transport reliant différentes localités.',
@@ -292,7 +292,7 @@ List<Map<String, dynamic>> services = [
     'categorieVal': 'Loisirs',
     'sousCategorieVal': 'Espace de loisirs',
     'gestionnaireIdVal': 10,
-    'horaire': '8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-18:00 8:30-12:00 close',
+    'horaire': '',
     'nomserviceVal': 'Espace Public',
     'aproposVal':
         'Espace destiné à la détente, aux rencontres et aux activités de loisirs accessibles au public.',
