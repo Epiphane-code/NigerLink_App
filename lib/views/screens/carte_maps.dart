@@ -1,7 +1,8 @@
 import 'package:e_services_niger/controllers/localisation_controller.dart';
+import 'package:e_services_niger/controllers/provider_controller.dart';
+import 'package:e_services_niger/models/coordonnee.dart';
+import 'package:e_services_niger/views/widgets/carte_filter.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_map/flutter_map.dart';
-import 'package:latlong2/latlong.dart';
 import 'package:provider/provider.dart';
 
 class CarteMaps extends StatefulWidget {
@@ -12,85 +13,127 @@ class CarteMaps extends StatefulWidget {
 }
 
 class _CarteMapsState extends State<CarteMaps> {
-  late LatLng maPosition;
-  
+  List<CoordonneeLatLnt> lieuxCategorie = [];
+
+  String filtreSelectionne = 'tous';
 
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final provider = context.read<LocalisationController>();
 
-      maPosition = provider.maPosition;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<LocalisationController>().getCurrentCity();
+      context.read<ProviderController>().getCoordonnees();
     });
   }
+
+  void filter(List<CoordonneeLatLnt> liste) {
+    setState(() {
+      lieuxCategorie = liste;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    final localisationController =
+        context.watch<LocalisationController>();
+
+    final providerController =
+        context.watch<ProviderController>();
+
+    final maPosition = localisationController.maPosition;
+
+    final lieux = providerController.coordonnees;
+
+    final List<String> categories = [
+      'tous',
+      'pharmacie',
+      'sante',
+      'ecole',
+      'mosquee',
+      'eglise',
+      'ministere',
+      'banque',
+    ];
+
+    if (maPosition == null) {
+      return const Scaffold(
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
+
     return Scaffold(
-      body: FlutterMap(
-      options: MapOptions(
-        initialCenter: maPosition,
-        initialZoom: 15,
+      appBar: AppBar(
+        title: const Text(
+          'Rechercher sur la carte',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.green,
+        automaticallyImplyLeading: false,
       ),
-      children: [
-        TileLayer(
-          urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-          userAgentPackageName: 'com.example.e_services_niger',
-        ),
 
-        MarkerLayer(
-          markers: [
-            Marker(
-              point: maPosition,
-              width: 120,
-              height: 80,
-              child: Column(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 4,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(8),
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 4,
-                          color: Colors.black26,
-                        ),
-                      ],
-                    ),
-                    child: Text(
-                      "Ma position",
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 12,
-                      ),
-                      overflow: TextOverflow.ellipsis,
-                    ),
+      body: Column(
+        children: [
+
+          // ==========================
+          // BOUTONS DE FILTRE
+          // ==========================
+          SizedBox(
+            height: 55,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: categories.map((categorie) {
+
+                return Padding(
+                  padding: const EdgeInsets.all(8),
+
+                  child: ChoiceChip(
+                    label: Text(categorie),
+
+                    selected:
+                        filtreSelectionne == categorie,
+
+                    onSelected: (value) {
+
+                      setState(() {
+
+                        filtreSelectionne = categorie;
+
+                        // Si "tous" est sélectionné
+                        if (categorie == 'tous') {
+
+                          lieuxCategorie = lieux;
+
+                        } else {
+
+                          lieuxCategorie = lieux
+                              .where(
+                                (item) =>
+                                    item.categorie == categorie,
+                              )
+                              .toList();
+                        }
+                      });
+                    },
                   ),
-
-                  const Icon(
-                    Icons.location_on,
-                    size: 40,
-                    color: Colors.red,
-                  ),
-                ],
-              ),
+                );
+              }).toList(),
             ),
-          ],
-        ),
+          ),
 
-        RichAttributionWidget(
-          attributions: [
-            TextSourceAttribution(
-              'OpenStreetMap contributors',
+          // ==========================
+          // CARTE
+          // ==========================
+          Expanded(
+            child: CarteFilter(
+              coordonneesList: (filtreSelectionne == 'tous')? lieux : lieuxCategorie,
+              maPosition: maPosition,
             ),
-          ],
-        ),
-      ],
-    ),
+          ),
+        ],
+      ),
     );
   }
 }

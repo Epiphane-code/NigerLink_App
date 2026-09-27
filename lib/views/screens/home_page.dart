@@ -41,7 +41,6 @@ class _HomePageState extends State<HomePage> {
     final ville = context.watch<LocalisationController>().city;
 
     return Scaffold(
-      appBar: AppBar(backgroundColor: Color(0xFF007A4D)),
       body: SafeArea(
         child: Column(
           children: [

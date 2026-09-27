@@ -19,181 +19,181 @@ Widget categorieIcon(String cat) {
     // SANTÉ
     // =========================
 
-    case 'Pharmacie':
+    case 'pharmacie':
       return const Icon(Icons.medication_rounded, color: Color(0xFF2E8B57));
 
-    case 'Sante':
+    case 'sante':
       return const Icon(Icons.local_hospital_rounded, color: Color(0xFFDE5B71));
 
-    case 'Massages':
+    case 'massages':
       return const Icon(Icons.spa_rounded, color: Color(0xFF9C6ADE));
 
     // =========================
     // ÉDUCATION
     // =========================
 
-    case 'Ecole':
+    case 'ecole':
       return const Icon(Icons.school_rounded, color: Color(0xFF3F7FBF));
-    case 'Education':
+    case 'education':
       return const Icon(Icons.school_rounded, color: Color(0xFF3F7FBF));
 
-    case 'Universite':
+    case 'universite':
       return const Icon(
         Icons.account_balance_rounded,
         color: Color(0xFF8C5BC4),
       );
 
-    case 'Bibliotheques':
+    case 'bibliotheques':
       return const Icon(Icons.local_library_rounded, color: Color(0xFF795548));
-    case 'Lecture':
+    case 'lecture':
       return const Icon(Icons.local_library_rounded, color: Color(0xFF795548));
     // =========================
     // TRANSPORT / VOYAGE
     // =========================
 
-    case 'Transport':
+    case 'transport':
       return const Icon(Icons.directions_bus_rounded, color: Color(0xFF3D8D78));
 
-    case 'Voyage':
+    case 'voyage':
       return const Icon(Icons.luggage_rounded, color: Color(0xFF00897B));
 
-    case 'Aeroports':
+    case 'aeroports':
       return const Icon(Icons.flight_rounded, color: Color(0xFF1976D2));
 
     // =========================
     // URGENCES / SÉCURITÉ
     // =========================
 
-    case 'Sapeurs Pompiers':
+    case 'sapeurs pompiers':
       return const Icon(Icons.fire_truck_rounded, color: Color(0xFFE64A35));
 
-    case 'Gendarmerie':
+    case 'gendarmerie':
       return const Icon(Icons.local_police_rounded, color: Color(0xFF2457A6));
 
-    case 'Commissariat':
+    case 'commissariat':
       return const Icon(Icons.local_police_rounded, color: Color(0xFF1565C0));
 
-    case 'Justice':
+    case 'justice':
       return const Icon(Icons.gavel_rounded, color: Color(0xFF6D4C41));
 
     // =========================
     // ADMINISTRATION
     // =========================
 
-    case 'Mairie':
+    case 'mairie':
       return const Icon(
         Icons.account_balance_rounded,
         color: Color(0xFF9D7545),
       );
 
-    case 'Ministere':
+    case 'ministere':
       return const Icon(Icons.business_rounded, color: Color(0xFF00695C));
 
-    case 'Impot':
+    case 'impot':
       return const Icon(Icons.receipt_long_rounded, color: Color(0xFFB58335));
 
-    case 'Etat Civile':
+    case 'etat civile':
       return const Icon(Icons.badge_rounded, color: Color(0xFF00897B));
 
     // =========================
     // FINANCES
     // =========================
 
-    case 'Banque':
+    case 'banque':
       return const Icon(
         Icons.account_balance_wallet_rounded,
         color: Color(0xFF1976D2),
       );
 
-    case 'Finance':
+    case 'finance':
       return const Icon(
         Icons.account_balance_rounded,
         color: Color(0xFF1976D2),
       );
 
-    case 'Logement':
+    case 'logement':
       return const Icon(Icons.hotel_rounded, color: Color(0xFF8E44AD));
 
-    case 'Restauration':
+    case 'restauration':
       return const Icon(Icons.restaurant_rounded, color: Color(0xFFE65100));
 
-    case 'Services Publics':
+    case 'services publics':
       return const Icon(
         Icons.account_balance_rounded,
         color: Color(0xFF1565C0),
       );
-      case 'Securite':
+      case 'securite':
   return const Icon(
     Icons.shield_rounded,
     color: Color(0xFFD32F2F),
   );
 
-    case 'Assurance':
+    case 'assurance':
       return const Icon(Icons.shield_rounded, color: Color(0xFF5E35B1));
 
     // =========================
     // LIVRAISON / COMMERCE
     // =========================
 
-    case 'Services de Livraison':
+    case 'services de livraison':
       return const Icon(Icons.local_shipping_rounded, color: Color(0xFFFF6F00));
 
-    case 'Marches':
+    case 'marche':
       return const Icon(Icons.storefront_rounded, color: Color(0xFFE65100));
 
-    case 'Super Marche':
+    case 'super marche':
       return const Icon(Icons.shopping_cart_rounded, color: Color(0xFF43A047));
 
     // =========================
     // RELIGION
     // =========================
 
-    case 'Mosquee':
+    case 'mosquee':
       return const Icon(Icons.mosque_rounded, color: Color(0xFF007A4D));
 
-    case 'Eglise':
+    case 'eglise':
       return const Icon(Icons.church_rounded, color: Color(0xFF795548));
 
     // =========================
     // HÔTELLERIE / RESTAURATION
     // =========================
 
-    case 'Hotel':
+    case 'hotel':
       return const Icon(Icons.hotel_rounded, color: Color(0xFF8E24AA));
 
-    case 'Restaurant':
+    case 'restaurant':
       return const Icon(Icons.restaurant_rounded, color: Color(0xFFE65100));
 
     // =========================
     // TOURISME / CULTURE
     // =========================
 
-    case 'Monuments':
+    case 'monument':
       return const Icon(
         Icons.account_balance_rounded,
         color: Color(0xFF795548),
       );
 
-    case 'Humanitaire':
+    case 'humanitaire':
       return const Icon(
         Icons.volunteer_activism_rounded,
         color: Color(0xFFE53935),
       );
-    case 'Culte et Religion':
+    case 'culte et religion':
       return const Icon(Icons.church_rounded, color: Color(0xFF6A1B9A));
 
-    case 'Commercial':
+    case 'commercial':
       return const Icon(Icons.storefront_rounded, color: Color(0xFF00897B));
-    case 'Cinema':
+    case 'cinema':
       return const Icon(Icons.movie_rounded, color: Color(0xFF7B1FA2));
 
-    case 'Loisirs':
+    case 'loisirs':
       return const Icon(Icons.sports_esports_rounded, color: Color(0xFFE91E63));
     // =========================
     // CARBURANT
     // =========================
 
-    case 'Stations Services':
+    case 'stations services':
       return const Icon(
         Icons.local_gas_station_rounded,
         color: Color(0xFFD32F2F),
@@ -203,40 +203,40 @@ Widget categorieIcon(String cat) {
     // ESPACES / LOISIRS
     // =========================
 
-    case 'Espace Public':
+    case 'espace public':
       return const Icon(Icons.park_rounded, color: Color(0xFF43A047));
 
-    case 'Salles de Jeux':
+    case 'salles de jeux':
       return const Icon(Icons.sports_esports_rounded, color: Color(0xFF8E24AA));
 
-    case 'Sport':
+    case 'sport':
       return const Icon(Icons.sports_soccer_rounded, color: Color(0xFF00897B));
 
     // =========================
     // TECHNOLOGIE
     // =========================
 
-    case 'Cybert':
+    case 'cybert':
       return const Icon(Icons.computer_rounded, color: Color(0xFF1565C0));
 
     // =========================
     // GÉOGRAPHIE
     // =========================
 
-    case 'Quartiers':
+    case 'quartier':
       return const Icon(Icons.location_city_rounded, color: Color(0xFF00897B));
 
-    case 'Villes':
+    case 'ville':
       return const Icon(Icons.location_city_rounded, color: Color(0xFF1976D2));
 
-    case 'Regions':
+    case 'region':
       return const Icon(Icons.map_rounded, color: Color(0xFF6A1B9A));
 
     // =========================
     // ORPHELINATS
     // =========================
 
-    case 'Orphelinat':
+    case 'orphelinat':
       return const Icon(Icons.child_care_rounded, color: Color(0xFFFF8F00));
 
     // =========================
